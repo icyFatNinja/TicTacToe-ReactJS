@@ -85,18 +85,27 @@ h1 {
   left: 83%;
 }
 
-.strike-diagnoal-1 {
-  width: 90;
+.strike-diagonal-1 {
+  width: 90%;
   height: 4px;
   top: 50%;
   left: 5%;
   transform: skewY(45deg);
 }
 
-.strike-diagnoal-2 {
+.strike-diagonal-2 {
   width: 90%;
   height: 4px;
-  top: 50%;
+  top: 48%;
   left: 5%;
-  transform: skeY(-45deg);
+  transform: skewY(-45deg);
+}
+
+.game-over {
+  text-align: center;
+  border: #5468ff 8px;
+  border-style: dotted;
+  padding: 10px;
+  margin-top: 50px;
+  font-size: 1.5em;
 }
