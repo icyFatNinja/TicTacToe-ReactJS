@@ -59,7 +59,7 @@ function checkWinner(tiles, setStrikeClass, setGameState) {
 }
 
 function TicTacToe() {
-  const [tiles, setTiles] = useState(Array(16).fill(null));
+  const [tiles, setTiles] = useState(Array(9).fill(null));
   const [playerTurn, setPlayerTurn] = useState(PLAYER_X);
   const [strikeClass, setStrikeClass] = useState();
   const [gameState, setGameState] = useState(GameState.inProgress);
