@@ -3,6 +3,16 @@ import Board from "./Board";
 import GameOver from "./GameOver";
 import GameState from "./GameState";
 import Reset from "./Reset";
+import gameOverSoundAsset from "../sounds/gameover.mp3";
+import pickXSoundAsset from "../sounds/pickX.mp3";
+import pickOSoundAsset from "../sounds/pickO.mp3";
+
+const gameOverSound = new Audio(gameOverSoundAsset);
+gameOverSound.volumn = 0.4;
+const pickXSound = new Audio(pickXSoundAsset);
+pickXSound.volume = 0.5;
+const pickOSound = new Audio(pickOSoundAsset);
+pickOSound.volumn = 0.5;
 
 const PLAYER_X = "X";
 const PLAYER_O = "O";
@@ -83,6 +93,22 @@ function TicTacToe() {
   useEffect(() => {
     checkWinner(tiles, setStrikeClass, setGameState);
   }, [tiles]);
+
+  useEffect(() => {
+    if (tiles.some((tile) => tile != null)) {
+      if (playerTurn === PLAYER_O) {
+        pickXSound.play();
+      } else if (playerTurn === PLAYER_X) {
+        pickOSound.play();
+      }
+    }
+  }, [tiles]);
+
+  useEffect(() => {
+    if (gameState !== GameState.inProgress) {
+      gameOverSound.play();
+    }
+  }, [gameState]);
 
   return (
     <div>
